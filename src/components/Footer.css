@@ -1,0 +1,33 @@
+.footer{
+
+padding:60px;
+
+background:#2d2019;
+
+color:white;
+
+text-align:center;
+
+}
+
+.footer h2{
+
+font-family:'Playfair Display',serif;
+
+margin-bottom:15px;
+
+}
+
+.footer p{
+
+margin-bottom:15px;
+
+color:#d2d2d2;
+
+}
+
+.footer small{
+
+color:#999;
+
+}
