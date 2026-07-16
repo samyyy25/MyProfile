@@ -15,6 +15,15 @@ import {
 import {
   SiFlask,
   SiMysql,
+  SiNextdotjs,
+  SiExpress,
+  SiPostgresql,
+  SiPrisma,
+  SiTailwindcss,
+  SiVercel,
+  SiRender,
+  SiRailway,
+  SiAuth0
 } from "react-icons/si";
 
 const skills = [
@@ -62,6 +71,59 @@ const skills = [
   icon: "🎨",
   title: "Canva"
 },
+
+  {
+    icon: <FaReact />,
+    title: "React.js",
+  },
+  {
+    icon: <SiNextdotjs />,
+    title: "Next.js",
+  },
+  {
+    icon: <FaNodeJs />,
+    title: "Node.js",
+  },
+  {
+    icon: <SiExpress />,
+    title: "Express.js",
+  },
+  {
+    icon: <SiTailwindcss />,
+    title: "Tailwind CSS",
+  },
+   {
+    icon: <SiPostgresql />,
+    title: "PostgreSQL",
+  },
+  {
+    icon: <SiPrisma />,
+    title: "Prisma ORM",
+  },
+  {
+    icon: "🔗",
+    title: "REST APIs",
+  },
+  {
+    icon: <SiAuth0 />,
+    title: "NextAuth.js",
+  },
+  {
+    icon: <SiVercel />,
+    title: "Vercel",
+  },
+  {
+    icon: <SiRender />,
+    title: "Render",
+  },
+  {
+    icon: <SiRailway />,
+    title: "Railway",
+  },
+  {
+    icon: "📱",
+    title: "Responsive Design",
+  }
 ];
 
 function About() {
@@ -116,12 +178,12 @@ function About() {
             <div className="stats">
 
               <div className="stat-card">
-                <h1>4+</h1>
+                <h1>6+</h1>
                 <span>Projects</span>
               </div>
 
               <div className="stat-card">
-                <h1>11+</h1>
+                <h1>15+</h1>
                 <span>Skills</span>
               </div>
 

@@ -50,24 +50,42 @@ const projects = [
       "Bootstrap"
     ],
     github:
-      "https://github.com/samyyy25/Myportfolio",
-    live: ""
+      "https://github.com/samyyy25/MyProfile",
+    live: "https://my-profile-flax-three.vercel.app/"
   },
 
   {
-    title: "Task Manager",
+    title: "Pulse – Task Management System",
     image: "/public/task.png",
     description:
-      "Responsive task management application demonstrating CRUD operations and clean UI design.",
+      "Pulse – Task Management System is a full-stack web application designed for companies and employees to efficiently manage daily tasks and improve team productivity. It features secure authentication, task creation, updates, deletion, and tracking through an intuitive interface. Built with React, Node.js, Express.js, PostgreSQL, and Tailwind CSS, the application is deployed using Vercel, Render, and Railway, providing hands-on experience in full-stack development, REST APIs, authentication, and cloud deployment",
     tech: [
-      "HTML",
-      "CSS",
-      "JavaScript"
+      "React",
+      "Node.js",
+      "Express.js",
+      "PostgreSQL",
+      "Tailwind CSS"
     ],
     github:
-      "https://github.com/samyyy25/task1",
-    live: ""
-  }
+      "https://github.com/samyyy25/pulse-task-management",
+    live: "https://pulse-task-management-82rn.vercel.app/"
+  },
+  {
+  title: "LogBook – Tech Blogging Platform",
+  image: "/public/blog.png",
+  description:
+    "LogBook is a full-stack tech blogging platform that enables users to read, create, edit, and manage blog posts through a secure authentication system. Built with Next.js, TypeScript, PostgreSQL, Prisma ORM, and NextAuth.js, it features responsive design, protected routes, RESTful architecture, and efficient database management. The application is deployed on Vercel and provides hands-on experience in full-stack development, authentication, database integration, and modern web technologies.",
+  tech: [
+    "Next.js",
+    "TypeScript",
+    "PostgreSQL",
+    "Prisma ORM",
+    "NextAuth.js",
+    "Tailwind CSS"
+  ],
+  github: "https://github.com/samyyy25/blog",
+  live: "https://blog-six-zeta-35.vercel.app/"
+}
 ];
 
 function Projects() {
