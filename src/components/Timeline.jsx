@@ -14,7 +14,7 @@ const timeline = [
     title: "Software Development Summer Trainee",
     company: "Shri Ramswaroop Digital Technologies Pvt. Ltd.",
     description:
-      "Currently undergoing Software Development Summer Training focused on Full Stack Development. Working with Python, Flask, MySQL, Git, GitHub, Bootstrap and modern frontend technologies while building real-world applications."
+      "Completed 10 Days Software Development Summer Training focused on Full Stack Development. Working with Python, Flask, MySQL, Git, GitHub, Bootstrap, Node.js, Next.js, React.js, PostgreSQL, Railway, Render, Vercel and modern frontend technologies while building real-world applications."
   },
 
   {
