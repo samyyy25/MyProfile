@@ -9,7 +9,8 @@ import {
   FaPython,
   FaGitAlt,
   FaGithub,
-  FaBootstrap
+  FaBootstrap, 
+  FaNodeJs
 } from "react-icons/fa";
 
 import {
