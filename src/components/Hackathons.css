@@ -1,0 +1,161 @@
+.hackathons-section {
+  padding: 120px 8%;
+  background: #f7f3ef;
+}
+
+.hackathons-section h2 {
+  text-align: center;
+  font-size: 52px;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 80px;
+  color: #3d2c24;
+}
+
+.hackathons-timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.hackathons-timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 4px;
+  background: #b58d69;
+  top: 0;
+  bottom: 0;
+  transform: translateX(-50%);
+}
+
+.hackathon-item {
+  position: relative;
+  width: 50%;
+  padding: 30px;
+}
+
+.hackathon-item.left {
+  left: 0;
+}
+
+.hackathon-item.right {
+  left: 50%;
+}
+
+.hackathon-content {
+  background: white;
+  padding: 30px;
+  border-radius: 25px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  transition: 0.4s;
+}
+
+.hackathon-content:hover {
+  transform: translateY(-10px);
+}
+
+.hackathon-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.hackathon-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #8d6c4c;
+  color: white;
+  font-size: 22px;
+}
+
+.hackathon-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #f2e7dd;
+  border: 1.5px solid #d9b896;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #5b4335;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.hackathon-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 12px;
+}
+
+.hackathon-meta span {
+  display: inline-flex;
+  align-items: center;
+  color: #a17b5d;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.hackathon-content h3 {
+  margin: 10px 0 15px;
+  font-size: 26px;
+  color: #3b2a22;
+  font-family: 'Playfair Display', serif;
+}
+
+.hackathon-content p {
+  line-height: 1.8;
+  color: #555;
+  font-size: 15px;
+}
+
+@media (max-width: 900px) {
+  .hackathons-timeline::before {
+    left: 20px;
+  }
+
+  .hackathon-item {
+    width: 100%;
+    padding-left: 60px;
+    padding-right: 0;
+    left: 0 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hackathons-section {
+    padding: 100px 5%;
+  }
+
+  .hackathons-section h2 {
+    font-size: 40px;
+    margin-bottom: 50px;
+  }
+
+  .hackathons-timeline::before {
+    left: 20px;
+  }
+
+  .hackathon-item {
+    width: 100%;
+    padding-left: 55px;
+    padding-right: 10px;
+    left: 0 !important;
+  }
+
+  .hackathon-content {
+    padding: 20px;
+  }
+
+  .hackathon-content h3 {
+    font-size: 22px;
+  }
+}

@@ -10,6 +10,8 @@ import Timeline from "./components/Timeline";
 import "./components/Timeline.css";
 import Projects from "./components/Projects.jsx";
 import "./components/Projects.css";
+import Hackathons from "./components/Hackathons.jsx";
+import "./components/Hackathons.css";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
@@ -23,9 +25,11 @@ function App() {
 
       <About />
 
+      <Projects />
+
       <Timeline />
 
-      <Projects />
+      <Hackathons />
 
       <Contact />
 

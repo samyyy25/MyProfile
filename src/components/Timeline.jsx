@@ -10,6 +10,17 @@ import {
 const timeline = [
   {
     icon: <FaBriefcase />,
+    year: "August 2026 – Present",
+    isCurrent: true,
+    title: "Full Stack Development Fellow",
+    company: "APYX",
+    location: "Remote · Project-Based Fellowship",
+    description:
+      "Selected as a Fellow for the APYX Fellowship 2026, a project-based remote fellowship focused on hands-on full-stack development experience. Working on real product features, contributing to product design, building intuitive and functional user experiences, creating wireframes and prototypes, and collaborating with the core team to improve usability and product quality."
+  },
+
+  {
+    icon: <FaBriefcase />,
     year: "July 2026",
     title: "Software Development Summer Trainee",
     company: "Shri Ramswaroop Digital Technologies Pvt. Ltd.",
@@ -35,22 +46,13 @@ const timeline = [
   },
 
   {
-    icon: <FaTrophy />,
-    year: "Hackathon Achievement",
-    title: "4th Position among 50 Teams",
-    company: "Inter College Hackathon",
+    icon: <FaBriefcase />,
+    year: "Aug 2025",
+    title: "Full-Stack Development Summer Trainee",
+    company: "Shri Ramswaroop Digital Technologies Pvt. Ltd. (SRDT Pvt. Ltd.)",
     description:
-      "Worked with my teammates to develop FittyFit, an innovative fitness platform. Secured 4th position among more than 50 participating teams."
+      "Completed a Full-Stack Development Summer Training focused on Python and modern web technologies. Developed frontend components, backend logic, and basic API integrations while strengthening practical skills in database management, version control (Git & GitHub), and responsive UI development."
   },
-
-  {
-  icon: <FaBriefcase />,
-  year: "Aug 2025",
-  title: "Full-Stack Development Summer Trainee",
-  company: "Shri Ramswaroop Digital Technologies Pvt. Ltd. (SRDT Pvt. Ltd.)",
-  description:
-    "Completed a Full-Stack Development Summer Training focused on Python and modern web technologies. Developed frontend components, backend logic, and basic API integrations while strengthening practical skills in database management, version control (Git & GitHub), and responsive UI development."
-},
 
   {
     icon: <FaGraduationCap />,
@@ -67,22 +69,22 @@ function Timeline() {
     <section className="timeline-section" id="experience">
 
       <motion.h2
-        initial={{opacity:0,y:50}}
-        whileInView={{opacity:1,y:0}}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
       >
         Experience & Journey
       </motion.h2>
 
       <div className="timeline">
 
-        {timeline.map((item,index)=>(
+        {timeline.map((item, index) => (
 
           <motion.div
-            className={`timeline-item ${index%2===0 ? "left":"right"}`}
+            className={`timeline-item ${index % 2 === 0 ? "left" : "right"}`}
             key={index}
-            initial={{opacity:0,y:80}}
-            whileInView={{opacity:1,y:0}}
-            transition={{duration:.6}}
+            initial={{ opacity: 0, y: 80 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: .6 }}
           >
 
             <div className="timeline-content">

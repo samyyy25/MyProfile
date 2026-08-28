@@ -103,9 +103,9 @@ function Hero() {
 
       <motion.div
         className="hero-right"
-        initial={{ opacity:0, scale:.8 }}
-        animate={{ opacity:1, scale:1 }}
-        transition={{ duration:1 }}
+        initial={{ opacity: 0, scale: .8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1 }}
       >
 
         <div className="blob">
@@ -121,12 +121,12 @@ function Hero() {
 
           🏆
 
-          <h3>Hackathon</h3>
+          <h3>Hackathons</h3>
 
           <p>
-            4th Position
+            3 Competitions
             <br />
-            among 50 Teams
+            Top 5 finishes in all
           </p>
 
         </div>

@@ -20,6 +20,8 @@ function Navbar() {
 
         <li><a href="#experience">Experience</a></li>
 
+        <li><a href="#hackathons">Hackathons</a></li>
+
         <li><a href="#contact">Contact</a></li>
 
       </ul>

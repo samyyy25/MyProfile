@@ -9,7 +9,7 @@ import {
   FaPython,
   FaGitAlt,
   FaGithub,
-  FaBootstrap, 
+  FaBootstrap,
   FaNodeJs
 } from "react-icons/fa";
 
@@ -68,10 +68,10 @@ const skills = [
     icon: <FaGithub />,
     title: "GitHub"
   },
- {
-  icon: "🎨",
-  title: "Canva"
-},
+  {
+    icon: "🎨",
+    title: "Canva"
+  },
 
   {
     icon: <FaReact />,
@@ -93,7 +93,7 @@ const skills = [
     icon: <SiTailwindcss />,
     title: "Tailwind CSS",
   },
-   {
+  {
     icon: <SiPostgresql />,
     title: "PostgreSQL",
   },
@@ -179,7 +179,7 @@ function About() {
             <div className="stats">
 
               <div className="stat-card">
-                <h1>6+</h1>
+                <h1>8+</h1>
                 <span>Projects</span>
               </div>
 
@@ -189,8 +189,8 @@ function About() {
               </div>
 
               <div className="stat-card">
-                <h1>4th</h1>
-                <span>Hackathon Rank</span>
+                <h1>2nd</h1>
+                <span>Best Rank in Hackathon</span>
               </div>
 
             </div>
