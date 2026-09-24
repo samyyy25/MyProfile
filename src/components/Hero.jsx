@@ -124,9 +124,8 @@ function Hero() {
           <h3>Hackathons</h3>
 
           <p>
-            3 Competitions
             <br />
-            Top 5 finishes in all
+            4x Hackathon Finalist
           </p>
 
         </div>
