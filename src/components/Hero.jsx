@@ -123,10 +123,7 @@ function Hero() {
 
           <h3>Hackathons</h3>
 
-          <p>
-            <br />
-            4x Hackathon Finalist
-          </p>
+          <p>4x Hackathon Finalist</p>
 
         </div>
 
