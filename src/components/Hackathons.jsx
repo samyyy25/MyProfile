@@ -14,7 +14,7 @@ const hackathons = [
   },
   {
   icon: <FaMedal />,
-  badge: "🥉 2nd Runner-Up",
+  badge: "🥉 2nd Runner-Up, ₹2000 Prize",
   title: "TNX CODATHON",
   location: "SRMCEM, Lucknow",
   date: "Sep 16",
