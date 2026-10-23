@@ -23,6 +23,21 @@ const projects = [
     featured: true
   },
   {
+    title: "SmritiSetu — Memory Bridge & Assistive Cognitive Care",
+    image: "/smritisetu.png",
+    description:
+      "A full-stack platform that helps dementia and memory-impaired patients preserve memories and reinforce daily routines, while giving family caregivers a dashboard to track progress. Patients use a simple memory app with live system health monitoring, and caregivers get metrics and alerts. A Python AI engine generates synthetic recall-interaction logs and scores them into a Cognitive Health Index (CHI) for cognitive health analytics."",
+    tech: [
+      "AI Agents",
+      "Python",
+      "FastAPI",
+      "Next.js",
+      "Risk Validation"
+    ],
+    github: "https://github.com/samyyy25/smritisetu",
+    live: "https://smritisetu-phi.vercel.app/"
+  },
+  {
     title: "SQUAWK — AI-Powered Aircraft Recovery System",
     image: "/squawk.png",
     description:
@@ -35,7 +50,7 @@ const projects = [
       "Risk Validation"
     ],
     github: "https://github.com/samyyy25/squawk",
-    live: ""
+    live: "https://squawk-aog-recovery.onrender.com/"
   },
   {
     title: "RELAY — AI Emergency Interpreter",
