@@ -1,8 +1,10 @@
 import "./Timeline.css";
 import { motion } from "framer-motion";
+import { title } from "framer-motion/client";
 import {
   FaBriefcase,
-  FaGraduationCap
+  FaGraduationCap,
+  FaTrophy
 } from "react-icons/fa";
 
 const timeline = [
