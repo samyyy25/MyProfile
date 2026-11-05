@@ -145,7 +145,7 @@ function CustomGraphNode({ id, data }) {
         {hasCard && (
           <motion.div
             key="card"
-            className="gx-card-anchor"
+            className={`gx-card-anchor${ui.scrollCards ? " nopan nowheel" : ""}`}
             style={{ x: "-50%", y: "-50%" }}
             initial={ui.reduced ? { opacity: 0 } : { opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}

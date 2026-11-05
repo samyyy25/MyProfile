@@ -5,6 +5,7 @@ import { edges, entities, neighbors, nodes as baseNodes, positions } from "../gr
 import { GraphUIContext } from "../graph/GraphUIContext";
 import { CARD_KINDS, hasDetail, isArrowKey, nextInDirection } from "../graph/graphState";
 import { MAX_ZOOM, MIN_ZOOM, useCamera } from "../graph/useCamera";
+import { useMediaQuery } from "../hooks/useMediaQuery";
 import CustomGraphNode from "./CustomGraphNode";
 import GraphConnections from "./GraphConnections";
 import CanvasControls from "./CanvasControls";
@@ -35,12 +36,15 @@ function scaleAround(viewport, factor, width, height) {
 function Canvas({ selectedId, onSelect, focus, onOpenDetail, onViewCertificate, onReset, resetToken, ready, theme, compact, reduced, onInteract }) {
   const rf = useReactFlow();
   const store = useStoreApi();
-  const camera = useCamera({ reduced, compact });
-  const { home, fitGroup, fitIds, focusNode, zoomToNode, zoomBy, homeViewport } = camera;
+  const camera = useCamera({ reduced });
+  const { home, fitGroup, fitIds, focusNode, fitCard, zoomToNode, zoomBy, homeViewport } = camera;
 
   const rootRef = useRef(null);
   const [hoverId, setHoverId] = useState(null);
+  // On touch or short screens a tall card scrolls inside itself, so it must not be a pan/zoom surface.
+  const scrollCards = useMediaQuery("(pointer: coarse), (max-height: 520px)");
   const userMoved = useRef(false);
+  const lastZoom = useRef(1);
   const started = useRef(false);
   // Latest values for effects that must not re-run when they change.
   const latest = useRef({});
@@ -69,8 +73,8 @@ function Canvas({ selectedId, onSelect, focus, onOpenDetail, onViewCertificate, 
     [onSelect, onOpenDetail, onViewCertificate],
   );
   const ui = useMemo(
-    () => ({ selectedId, hoverId, focusGroup: focus, reduced, actions }),
-    [selectedId, hoverId, focus, reduced, actions],
+    () => ({ selectedId, hoverId, focusGroup: focus, reduced, scrollCards, actions }),
+    [selectedId, hoverId, focus, reduced, scrollCards, actions],
   );
 
   // --- camera placement -----------------------------------------------------------------
@@ -106,6 +110,44 @@ function Canvas({ selectedId, onSelect, focus, onOpenDetail, onViewCertificate, 
     if (focus) fitGroup(focus);
     else if (!latest.current.selectedId) home();
   }, [focus, fitGroup, home]);
+
+  // Keep a card fully on screen even when its content grows (an expanded journey is far taller
+  // than the framing's 300px assumption): measure it after the selection glide settles, and
+  // again whenever its own height changes.
+  useEffect(() => {
+    if (!selectedId || !CARD_KINDS.has(entities[selectedId].kind)) return undefined;
+    const cardEl = () =>
+      rootRef.current?.querySelector(`.react-flow__node[data-id="${selectedId}"] .gx-card-anchor > *`);
+    const run = () => fitCard(selectedId, cardEl());
+    let timer = setTimeout(run, 1100);
+    let observer;
+    const attachTimer = setTimeout(() => {
+      const el = cardEl();
+      if (!el) return;
+      let first = true;
+      observer = new ResizeObserver(() => {
+        if (first) {
+          first = false; // the initial observation is not a change
+          return;
+        }
+        clearTimeout(timer);
+        timer = setTimeout(run, 240);
+      });
+      observer.observe(el);
+    }, 700);
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(attachTimer);
+      observer?.disconnect();
+    };
+  }, [selectedId, fitCard]);
+
+  // Publish the live zoom as --z so coarse-pointer hit areas can stay a usable size on screen.
+  const handleMove = useCallback((_event, viewport) => {
+    if (Math.abs(viewport.zoom - lastZoom.current) < 0.01) return;
+    lastZoom.current = viewport.zoom;
+    rootRef.current?.style.setProperty("--z", viewport.zoom.toFixed(2));
+  }, []);
 
   // The monogram in the top bar asks for a fresh start.
   useEffect(() => {
@@ -266,6 +308,7 @@ function Canvas({ selectedId, onSelect, focus, onOpenDetail, onViewCertificate, 
           onNodeDoubleClick={handleNodeDoubleClick}
           onPaneClick={handlePaneClick}
           onMoveStart={handleMoveStart}
+          onMove={handleMove}
         />
 
         <CanvasControls
@@ -275,7 +318,7 @@ function Canvas({ selectedId, onSelect, focus, onOpenDetail, onViewCertificate, 
           onFit={handleFit}
         />
 
-        <p className="canvas-hint">
+        <p className={`canvas-hint${selectedId ? " is-hidden" : ""}`} aria-hidden={selectedId ? "true" : undefined}>
           <span className="canvas-hint__pointer">Scroll to zoom · Drag to explore · Click nodes to discover</span>
           <span className="canvas-hint__touch">Pinch to zoom · Drag to explore · Tap nodes to discover</span>
         </p>

@@ -1129,3 +1129,123 @@ button.fp-link--solid:hover {
     width: 296px;
   }
 }
+
+/* ═══════════ responsive pass ═══════════ */
+
+.canvas-controls {
+  right: max(24px, env(safe-area-inset-right));
+  bottom: max(24px, env(safe-area-inset-bottom));
+}
+@media (max-width: 760px) {
+  .canvas-controls {
+    right: max(12px, env(safe-area-inset-right));
+    bottom: max(12px, env(safe-area-inset-bottom));
+  }
+}
+
+/* landscape phones / short windows: compact controls, compact cards */
+@media (max-height: 520px) {
+  .canvas-hint {
+    display: none;
+  }
+  .canvas-controls {
+    right: max(12px, env(safe-area-inset-right));
+    bottom: max(10px, env(safe-area-inset-bottom));
+    gap: 6px;
+  }
+  .canvas-controls .chrome-btn--square {
+    width: 42px;
+    height: 42px;
+  }
+  /* a card taller than the screen is useless: drop the picture and the tag row */
+  .fp-card--node .fp-media,
+  .fp-tags,
+  .info-card--cert .relation {
+    display: none;
+  }
+  .fp-body {
+    padding-top: 14px;
+  }
+  .info-card,
+  .info-card--featured,
+  .info-card--cert {
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+}
+
+@media (pointer: coarse) {
+  /* pill links and toggles inside cards */
+  .fp-link {
+    height: 44px;
+    padding: 0 18px;
+  }
+  .journey-toggle {
+    min-height: 44px;
+    border-bottom: 0;
+    text-decoration: underline;
+    text-decoration-color: var(--line-strong);
+    text-underline-offset: 5px;
+  }
+  .mini-card__chips button {
+    min-height: 40px;
+    padding: 0 14px;
+  }
+  /* graph dots: a hit area that stays >=44px ON SCREEN at any zoom (--z is the live zoom) */
+  .gx-hit::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: max(100%, calc(44px / var(--z, 1)));
+    height: max(100%, calc(44px / var(--z, 1)));
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+  }
+}
+
+/* the first-use hint steps aside as soon as something is selected, so it never sits on a card */
+.canvas-hint {
+  transition: opacity 0.35s var(--ease);
+}
+.canvas-hint.is-hidden {
+  opacity: 0;
+}
+
+/* mid-size screens: the centred hint must not run into the view toggle at the bottom-left */
+@media (min-width: 761px) and (max-width: 1100px) {
+  .canvas-hint {
+    width: min(380px, calc(100vw - 540px));
+    white-space: normal;
+  }
+}
+
+/* A card never grows taller than the usable area at the current zoom: past that it scrolls inside
+   itself. --z is the live camera zoom; --inset-y is the chrome's top+bottom footprint. */
+.canvas {
+  --inset-y: 188px;
+}
+@media (max-width: 760px) {
+  .canvas {
+    --inset-y: 168px;
+  }
+}
+@media (max-height: 520px) {
+  .canvas {
+    --inset-y: 126px;
+  }
+}
+.fp-card--node,
+.info-card {
+  max-height: calc((100vh - var(--inset-y)) / var(--z, 1));
+  max-height: calc((100dvh - var(--inset-y)) / var(--z, 1));
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line-strong) transparent;
+}
+.gx-card-anchor.nopan .fp-card--node,
+.gx-card-anchor.nopan .info-card {
+  touch-action: pan-y;
+}

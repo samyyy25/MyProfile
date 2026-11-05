@@ -283,3 +283,72 @@
     width: 44px;
   }
 }
+
+/* ═══════════ responsive pass ═══════════ */
+
+/* big monitors: a bigger sheet, not a postage stamp in the middle of the screen */
+@media (min-width: 1800px) {
+  .cert__panel {
+    width: min(1500px, 88vw);
+    height: min(1160px, 90vh);
+  }
+}
+
+/* landscape phones / short windows: full-bleed, with the header squeezed to one slim row */
+@media (max-height: 520px) {
+  .cert {
+    padding: 0;
+  }
+  .cert__panel {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+  .cert__bar {
+    align-items: center;
+    padding: 6px 10px 6px 16px;
+  }
+  .cert__meta .eyebrow,
+  .cert__facts {
+    display: none;
+  }
+  .cert__meta h2 {
+    margin: 0;
+    font-size: 20px;
+  }
+  .cert__close {
+    width: 40px;
+    height: 40px;
+  }
+  .cert__canvas {
+    padding: 10px 10px 70px;
+  }
+  .cert__canvas img {
+    width: calc(var(--zoom) * (100cqw - 20px));
+  }
+  .cert__skeleton {
+    inset: 10px 10px 70px;
+  }
+  .cert__tools {
+    bottom: max(10px, env(safe-area-inset-bottom));
+  }
+}
+@media (pointer: coarse) {
+  .cert__close {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+@media (min-width: 3200px) and (min-height: 1800px) {
+  .cert__panel {
+    width: min(2100px, 72vw);
+    height: min(1560px, 86vh);
+  }
+  .cert__meta h2 {
+    font-size: 48px;
+  }
+  .cert__facts dd {
+    font-size: 18px;
+  }
+}

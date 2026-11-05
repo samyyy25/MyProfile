@@ -639,3 +639,144 @@ body::after {
     animation: none !important;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Responsive pass: notches, short (landscape) screens, tiny phones, touch, big monitors.
+   Appended last on purpose so it refines the rules above.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* notches, rounded corners and home indicators */
+.topbar {
+  padding: max(20px, env(safe-area-inset-top)) max(24px, env(safe-area-inset-right)) 20px max(24px, env(safe-area-inset-left));
+}
+.bottom-left {
+  left: max(24px, env(safe-area-inset-left));
+  bottom: max(24px, env(safe-area-inset-bottom));
+}
+.welcome {
+  right: max(24px, env(safe-area-inset-right));
+}
+
+/* the focus menu may never run off the screen, whatever the screen */
+.focus__menu {
+  max-height: calc(100vh - 100px);
+  max-height: calc(100dvh - 100px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+@media (max-width: 760px) {
+  .topbar {
+    padding: max(12px, env(safe-area-inset-top)) max(12px, env(safe-area-inset-right)) 8px max(12px, env(safe-area-inset-left));
+  }
+  .bottom-left {
+    left: max(12px, env(safe-area-inset-left));
+    bottom: max(12px, env(safe-area-inset-bottom));
+  }
+  .welcome {
+    top: calc(max(12px, env(safe-area-inset-top)) + 56px);
+    left: max(12px, env(safe-area-inset-left));
+    right: max(12px, env(safe-area-inset-right));
+  }
+  /* anchor the menu to the screen, not to the (possibly narrow) button */
+  .focus {
+    position: static;
+  }
+  .focus__menu {
+    position: fixed;
+    top: calc(max(12px, env(safe-area-inset-top)) + 52px);
+    left: max(12px, env(safe-area-inset-left));
+    min-width: min(248px, calc(100vw - 24px));
+    max-width: calc(100vw - 24px);
+    max-height: calc(100vh - 76px);
+    max-height: calc(100dvh - 76px);
+  }
+}
+
+/* foldables and very small phones: keep the essentials, drop the duplicate Resume button
+   (it lives on the About tab and as a graph node) */
+@media (max-width: 359px) {
+  .topbar__group {
+    gap: 6px;
+  }
+  .topbar a.chrome-btn {
+    display: none;
+  }
+  .logo,
+  .chrome-btn--round,
+  .chrome-btn--pill {
+    width: 42px;
+    height: 42px;
+  }
+  .focus__button {
+    height: 42px;
+  }
+}
+
+/* landscape phones / any short window: every pixel of height counts */
+@media (max-height: 520px) {
+  .topbar {
+    padding-top: max(8px, env(safe-area-inset-top));
+    padding-bottom: 6px;
+  }
+  .bottom-left {
+    bottom: max(10px, env(safe-area-inset-bottom));
+  }
+  .welcome {
+    display: none;
+  }
+  .focus__menu {
+    top: calc(max(8px, env(safe-area-inset-top)) + 52px);
+    max-height: calc(100vh - 68px);
+    max-height: calc(100dvh - 68px);
+  }
+}
+
+/* touch: comfortable tap targets */
+@media (pointer: coarse) {
+  .view-toggle__btn {
+    height: 44px;
+    padding: 0 18px;
+  }
+  .focus__item {
+    min-height: 48px;
+  }
+  .welcome__close {
+    top: 6px;
+    right: 6px;
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* very large monitors: scale the floating chrome with the screen. Keyed to height as well as
+   width so an ultrawide (very wide, but only 1440px tall) isn't over-scaled. */
+@media (min-width: 2400px) and (min-height: 1300px) {
+  .topbar,
+  .bottom-left,
+  .canvas-controls,
+  .canvas-hint,
+  .welcome {
+    zoom: 1.25;
+  }
+}
+@media (min-width: 3200px) and (min-height: 1800px) {
+  .topbar,
+  .bottom-left,
+  .canvas-controls,
+  .canvas-hint,
+  .welcome {
+    zoom: 1.6;
+  }
+}
+
+/* tiny screens: give the category label the room the colour dots were using */
+@media (max-width: 359px) {
+  .topbar .focus__button > .focus__dots {
+    display: none;
+  }
+  .focus__button {
+    padding: 0 10px 0 14px;
+    gap: 8px;
+  }
+}
