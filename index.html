@@ -1,13 +1,93 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/logo.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>samriddhiportfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+    <title>Samriddhi Tripathi — Full-Stack Developer Portfolio</title>
+    <meta
+      name="description"
+      content="Interactive portfolio of Samriddhi Tripathi, a full-stack developer building real-world applications, AI-powered experiences, and creative digital products. Explore projects, tech stack, journey and hackathons."
+    />
+    <meta name="author" content="Samriddhi Tripathi" />
+    <meta name="theme-color" content="#090A0C" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Samriddhi Tripathi — Full-Stack Developer" />
+    <meta
+      property="og:description"
+      content="An interactive universe of projects, skills and milestones: real-world applications, AI-powered experiences and creative digital products."
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Samriddhi Tripathi — Full-Stack Developer" />
+    <meta
+      name="twitter:description"
+      content="An interactive universe of projects, skills and milestones by a full-stack developer."
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Samriddhi Tripathi",
+        "jobTitle": "Full-Stack Developer",
+        "description": "Full-stack developer building real-world applications, AI-powered experiences, and creative digital products.",
+        "alumniOf": "Shree Ramswaroop Memorial College of Engineering",
+        "sameAs": [
+          "https://github.com/samyyy25",
+          "https://www.linkedin.com/in/samriddhi-tripathi-b41029341"
+        ]
+      }
+    </script>
+
+    <!-- Set the theme before first paint: stored choice, else system preference, else dark. -->
+    <script>
+      (function () {
+        var t;
+        try {
+          t = localStorage.getItem("theme");
+        } catch (e) {}
+        if (t !== "light" && t !== "dark") {
+          t = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+        }
+        var root = document.documentElement;
+        root.setAttribute("data-theme", t);
+        root.style.colorScheme = t;
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute("content", t === "light" ? "#F8F8F5" : "#090A0C");
+      })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Fonts load without blocking first paint (print to all swap); system fonts cover the gap. -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" />
+    </noscript>
   </head>
   <body>
     <div id="root"></div>
+    <noscript>
+      <main style="max-width: 640px; margin: 15vh auto; padding: 0 24px; font-family: system-ui, sans-serif; line-height: 1.6">
+        <h1>Samriddhi Tripathi — Full-Stack Developer</h1>
+        <p>
+          Full-stack developer building real-world applications, AI-powered experiences, and creative digital products.
+        </p>
+        <p>This portfolio is an interactive experience and needs JavaScript. In the meantime:</p>
+        <ul>
+          <li><a href="https://github.com/samyyy25">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/samriddhi-tripathi-b41029341">LinkedIn</a></li>
+          <li><a href="mailto:tripathisamriddhi20@gmail.com">tripathisamriddhi20@gmail.com</a></li>
+        </ul>
+      </main>
+    </noscript>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
